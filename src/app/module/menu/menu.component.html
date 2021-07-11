@@ -1,0 +1,40 @@
+<div class="topnav" id="myTopnav">
+  <div class="container">
+    <a href="#home" class="active">นิยาย</a>
+    <a href="#news">นิยายแชท</a>
+    <a href="#contact">นิยายแชท</a>
+    <a href="#about">กระทู้</a>
+    <a href="#about">เขียน</a>
+    <a href="#about">ตรวจ</a>
+    <a (click)="onOpenLogin()" style="float:right; cursor: pointer;">เข้าสู่ระบบ / สมัครสมาชิก</a>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
+</div>
+
+<div class="topnavSub" id="myTopnavSub">
+  <div class="container">
+    <a href="#home" class="active">หน้าแรก</a>
+    <a href="#news">ใหม่มาแรง</a>
+    <a href="#contact">เรื่องฮิต</a>
+    <a href="#about">มาใหม่</a>
+    <a href="#about">อัพเดต</a>
+    <a href="#about">จบแล้ว</a>
+    <a href="#about">หมวดหมู่</a>
+    <a href="#about">อ่านล่าสุด</a>
+  </div>
+</div>
+
+<script>
+  var prevScrollpos = window.pageYOffset;
+  window.onscroll = function() {
+  var currentScrollPos = window.pageYOffset;
+    if (prevScrollpos > currentScrollPos) {
+      document.getElementById("myTopnavSub").style.top = "0";
+    } else {
+      document.getElementById("myTopnavSub").style.top = "-50px";
+    }
+    prevScrollpos = currentScrollPos;
+  }
+  </script>

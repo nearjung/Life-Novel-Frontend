@@ -1,0 +1,81 @@
+@font-face {
+    font-family: 'Itim';
+    src: url('Itim-Regular.woff2') format('woff2'),
+        url('Itim-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Kanit';
+    src: url('Kanit-Bold.woff2') format('woff2'),
+        url('Kanit-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Kanit';
+    src: url('Kanit-Regular.woff2') format('woff2'),
+        url('Kanit-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mitr';
+    src: url('Mitr-Bold.woff2') format('woff2'),
+        url('Mitr-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Mitr';
+    src: url('Mitr-Regular.woff2') format('woff2'),
+        url('Mitr-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Prompt';
+    src: url('Prompt-Bold.woff2') format('woff2'),
+        url('Prompt-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Prompt';
+    src: url('Prompt-Regular.woff2') format('woff2'),
+        url('Prompt-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Sarabun';
+    src: url('Sarabun-Bold.woff2') format('woff2'),
+        url('Sarabun-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Sarabun';
+    src: url('Sarabun-Regular.woff2') format('woff2'),
+        url('Sarabun-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+

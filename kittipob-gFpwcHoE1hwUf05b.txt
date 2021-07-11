@@ -1,3 +1,0 @@
-username=kittipob
-app_id=gFpwcHoE1hwUf05b
-app_secret=ANIeXEJiJGX7rYMCdqdguYq8PHzTgjXo9YWM/TOrifi0

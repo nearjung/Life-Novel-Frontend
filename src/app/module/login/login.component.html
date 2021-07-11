@@ -1,0 +1,49 @@
+<div *ngIf="page == 'login'" class="row m-4">
+    <div class="d-none d-lg-block col-lg-5"><img src="./assets/images/login_toon.jpg"></div>
+    <div class="col-md-12 col-sm-12 col-lg-7">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-lg-12 text-center">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-lg-12 text-center" style="font-size: 20px;">
+                        เข้าสู่ระบบ
+                        <hr>
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-lg-12 text-center mt-1">
+                        <p class="btn-facebook text-center"><i class="fab fa-facebook-square"></i> เข้าสู่ระบบด้วย
+                            Facebook
+                        </p>
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-lg-12 text-center">
+                        <p class="btn-line text-center"><i class="fab fa-line"></i> เข้าสู่ระบบด้วย Line</p>
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-lg-12 text-center">
+                        <p class="btn-google text-center"><i class="fab fa-google-plus-square"></i> เข้าสู่ระบบด้วย
+                            Google
+                        </p>
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-lg-12 text-left">
+                        เข้าสู่ระบบด้วยบัญชี Life Novel
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-lg-12 mt-1">
+                        <input type="email" class="form-control" placeholder="อีเมล">
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-lg-12 mt-1">
+                        <input type="password" class="form-control" placeholder="รหัสผ่าน">
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-lg-3 mt-1 text-left">
+                        <button type="button" class="btn btn-primary btn-sm">เข้าสู่ระบบ</button>
+                    </div>
+                    <div class="col-md-12 col-sm-12 col-lg-9 mt-1 text-left" style="font-size: 0.8rem; vertical-align: middle;">
+                        <a href="#">ลืมรหัสผ่าน</a> | <span href="" style="cursor: pointer;" (click)="page = 'register'">สมัครสมาชิก</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="page == 'register'" class="row m-4">
+    <div class="col-md-12 col-lg-6"><input type="text" class="form-control" placeholder="รหัสผ่าน"></div>
+    <div class="col-md-12 col-lg-6"><input type="text" class="form-control" placeholder="รหัสผ่าน"></div>
+    <div class="col-md-12 col-lg-6"><input type="text" class="form-control" placeholder="รหัสผ่าน"></div>
+    <div class="col-md-12 col-lg-6"><input type="text" class="form-control" placeholder="รหัสผ่าน"></div>
+</div>
