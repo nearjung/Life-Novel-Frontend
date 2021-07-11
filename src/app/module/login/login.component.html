@@ -9,7 +9,7 @@
                         <hr>
                     </div>
                     <div class="col-md-12 col-sm-12 col-lg-12 text-center mt-1">
-                        <p class="btn-facebook text-center"><i class="fab fa-facebook-square"></i> เข้าสู่ระบบด้วย
+                        <p class="btn-facebook text-center" (click)="signInWithFB()"><i class="fab fa-facebook-square"></i> เข้าสู่ระบบด้วย
                             Facebook
                         </p>
                     </div>
@@ -17,7 +17,7 @@
                         <p class="btn-line text-center"><i class="fab fa-line"></i> เข้าสู่ระบบด้วย Line</p>
                     </div>
                     <div class="col-md-12 col-sm-12 col-lg-12 text-center">
-                        <p class="btn-google text-center"><i class="fab fa-google-plus-square"></i> เข้าสู่ระบบด้วย
+                        <p class="btn-google text-center" (click)="signInWithGoogle()"><i class="fab fa-google-plus-square"></i> เข้าสู่ระบบด้วย
                             Google
                         </p>
                     </div>
@@ -31,7 +31,7 @@
                         <input type="password" class="form-control" placeholder="รหัสผ่าน">
                     </div>
                     <div class="col-md-12 col-sm-12 col-lg-3 mt-1 text-left">
-                        <button type="button" class="btn btn-primary btn-sm">เข้าสู่ระบบ</button>
+                        <button type="button" class="btn btn-primary btn-sm" (click)="signOut()">เข้าสู่ระบบ</button>
                     </div>
                     <div class="col-md-12 col-sm-12 col-lg-9 mt-1 text-left" style="font-size: 0.8rem; vertical-align: middle;">
                         <a href="#">ลืมรหัสผ่าน</a> | <span href="" style="cursor: pointer;" (click)="page = 'register'">สมัครสมาชิก</span>

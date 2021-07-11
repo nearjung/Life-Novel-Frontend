@@ -17,11 +17,12 @@ export class MenuComponent implements OnInit {
 
   onOpenLogin() {
     const activeModal = this.modalService.open(LoginComponent, { size: 'lg', windowClass: 'app-login' });
-		activeModal.componentInstance.action = 'Open Modal';
-		// activeModal.componentInstance.scheduleId = scheduleId;
-		// activeModal.componentInstance.data = JSON.stringify(data);
-		activeModal.result.then((result) => {
-			if (result) {
+    activeModal.componentInstance.action = 'Open Modal';
+    // activeModal.componentInstance.scheduleId = scheduleId;
+    // activeModal.componentInstance.data = JSON.stringify(data);
+    activeModal.result.then((result) => {
+      if (result) {
+        console.log(result);
       }
     })
   }
