@@ -15,13 +15,13 @@ import Swal from 'sweetalert2'
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
-  public user: any = JSON.parse(localStorage.getItem("userData"));
+  public user: any = JSON.parse(localStorage.getItem("userInfo")!);
 
   constructor(private router: Router, private authService: AuthService) { }
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     if (this.router.url != '/login') {
-      request = this.addToken(request, this.authService.getJwtToken());
+      request = this.addToken(request, this.authService.getJwtToken()!);
     }
     if (this.user) {
       var token = this.user.tokenExpire + '000';
@@ -37,7 +37,6 @@ export class AuthInterceptor implements HttpInterceptor {
           }
         })
         //location.reload();
-        return;
       }
     }
     return next.handle(request).pipe(catchError(error => {

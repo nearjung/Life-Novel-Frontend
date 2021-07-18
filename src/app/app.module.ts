@@ -1,8 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from "@angular/forms";
 import { SwiperModule } from 'swiper/angular';
-import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
-import { GoogleLoginProvider, FacebookLoginProvider } from 'angularx-social-login';
+import { SocialLoginModule, SocialAuthServiceConfig, GoogleLoginProvider, FacebookLoginProvider } from 'angularx-social-login';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ConfigServerService } from './core/config-server.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,6 +13,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { MenuComponent } from './module/menu/menu.component';
 import { BottomComponent } from './module/bottom/bottom.component';
 import { LoginComponent } from './module/login/login.component';
+import { AuthInterceptor } from './authorization/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -21,11 +25,17 @@ import { LoginComponent } from './module/login/login.component';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
+    AppRoutingModule,
+    FormsModule,
     SwiperModule,
     AppRoutingModule,
     SocialLoginModule
   ],
-  providers: [{
+  providers: [
+    ConfigServerService,
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    {
     provide: 'SocialAuthServiceConfig',
     useValue: {
       autoLogin: false,
@@ -33,7 +43,7 @@ import { LoginComponent } from './module/login/login.component';
         {
           id: GoogleLoginProvider.PROVIDER_ID,
           provider: new GoogleLoginProvider(
-            '222621206798-3s9f8a536kisbg4o0pup2p4jkct6rb08.apps.googleusercontent.com'
+            '754047462333-7as4ci2fauql6ai99jruqp2isv0ulu1h.apps.googleusercontent.com'
           )
         },
         {

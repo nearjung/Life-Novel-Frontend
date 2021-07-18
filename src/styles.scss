@@ -46,6 +46,47 @@
         display: none;
     }
 }
+
+.dropdown {
+    float: right;
+    overflow: hidden;
+    .dropbtn {
+        font-size: 16px;
+        border: none;
+        outline: none;
+        color: white;
+        padding: 14px 16px;
+        background-color: inherit;
+        font-family: inherit;
+        margin: 0;
+    }
+    &:hover {
+        .dropdown-content {
+            display: block;
+        }
+    }
+}
+.dropdown-content {
+    display: none;
+    position: fixed;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    margin-top: 56px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    a {
+        float: none;
+        color: black;
+        padding: 5px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+        &:hover {
+            background-color: rgb(255, 112, 112);
+        }
+    }
+}
+
 @media screen and (max-width: 600px) {
     .topnav {
         a {
@@ -72,7 +113,6 @@
         }
     }
     .login-modal {
-        
     }
 }
 
@@ -152,52 +192,52 @@ hr {
 }
 
 .btn-facebook {
-	-webkit-border-radius: 10;
-	-moz-border-radius: 10;
-	border-radius: 10px;
-	color: #ffffff;
-	font-size: 18px;
-	background: #4267b2;
-	padding: 10px 20px 10px 20px;
-	text-decoration: none;
-	width: 100%;
+    -webkit-border-radius: 10;
+    -moz-border-radius: 10;
+    border-radius: 10px;
+    color: #ffffff;
+    font-size: 18px;
+    background: #4267b2;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+    width: 100%;
     cursor: pointer;
-	&:hover {
-		background: #4c73c0;
-		text-decoration: none;
-	}
+    &:hover {
+        background: #4c73c0;
+        text-decoration: none;
+    }
 }
 
 .btn-line {
-	-webkit-border-radius: 10;
-	-moz-border-radius: 10;
-	border-radius: 10px;
-	color: #ffffff;
-	font-size: 18px;
-	background: #00b900;
-	padding: 10px 20px 10px 20px;
-	text-decoration: none;
-	width: 100%;
+    -webkit-border-radius: 10;
+    -moz-border-radius: 10;
+    border-radius: 10px;
+    color: #ffffff;
+    font-size: 18px;
+    background: #00b900;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+    width: 100%;
     cursor: pointer;
-	&:hover {
-		background: #04c704;
-		text-decoration: none;
-	}
+    &:hover {
+        background: #04c704;
+        text-decoration: none;
+    }
 }
 
 .btn-google {
-	-webkit-border-radius: 10;
-	-moz-border-radius: 10;
-	border-radius: 10px;
-	color: #ffffff;
-	font-size: 18px;
-	background: #e9b200;
-	padding: 10px 20px 10px 20px;
-	text-decoration: none;
-	width: 100%;
+    -webkit-border-radius: 10;
+    -moz-border-radius: 10;
+    border-radius: 10px;
+    color: #ffffff;
+    font-size: 18px;
+    background: #e9b200;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+    width: 100%;
     cursor: pointer;
-	&:hover {
-		background: #eebd1c;
-		text-decoration: none;
-	}
+    &:hover {
+        background: #eebd1c;
+        text-decoration: none;
+    }
 }

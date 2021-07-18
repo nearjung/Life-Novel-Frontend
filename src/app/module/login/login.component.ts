@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { SocialAuthService, SocialUser } from "angularx-social-login";
 import { FacebookLoginProvider, GoogleLoginProvider } from "angularx-social-login";
+import { AccountService } from '../../service/account.service';
 
 
 @Component({
@@ -16,14 +17,23 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private activeModal: NgbActiveModal,
-    private socialAuthService: SocialAuthService
+    private socialAuthService: SocialAuthService,
+    private accountService: AccountService
   ) { }
 
   ngOnInit(): void {
     this.socialAuthService.authState.subscribe((user) => {
+      // Search 
+      localStorage.setItem('userInfo', JSON.stringify(user));
       
-      console.log(user);
-      this.closeModal(user);
+      this.accountService.login(user).subscribe(result => {
+        if (result.serviceResult.status == "Success") {
+          localStorage.setItem('userInfo', result.serviceResult.value);
+          this.closeModal(result.serviceResult.value);
+        }
+      }, err => {
+        console.error(err);
+      })
     });
   }
 
@@ -45,8 +55,8 @@ export class LoginComponent implements OnInit {
   }
 
 
-  closeModal(result: any) {
-    this.activeModal.close(result);
+  closeModal(value: any) {
+    this.activeModal.close(value);
   }
 
 }

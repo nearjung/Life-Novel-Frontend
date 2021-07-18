@@ -6,7 +6,21 @@
     <a href="#about">กระทู้</a>
     <a href="#about">เขียน</a>
     <a href="#about">ตรวจ</a>
-    <a (click)="onOpenLogin()" style="float:right; cursor: pointer;">เข้าสู่ระบบ / สมัครสมาชิก</a>
+    <a *ngIf="!user?.firstName" (click)="onOpenLogin()" style="float:right; cursor: pointer;">เข้าสู่ระบบ / สมัครสมาชิก</a>
+    <div class="dropdown">
+      <a *ngIf="user?.firstName" style="float:right; cursor: pointer;" class="dropdown-toggle dropbtn"><img [src]="user.photoUrl" style="border-radius: 50%; height: 28px;"> {{ user.firstName }} </a>
+      <div class="dropdown-content">
+        <a class="text-center"><i class="fas fa-coins" style="color: rgba(228, 228, 0, 0.986)"></i> {{ user?.cash | number }} Coin</a>
+        <a>My Reading</a>
+        <a>My Writing</a>
+        <a>My Profile</a>
+        <a>My Page</a>
+        <a>ประวัติการสั่งซื้อ</a>
+        <a>นิยายที่ซื้อแล้ว</a>
+        <a style="border-bottom: 1px solid rgb(172, 172, 172);">Pre-order ที่สั่งซื้อ</a>
+        <a (click)="logout()"><i class="fas fa-sign-out-alt"></i> ออกจากระบบ</a>
+      </div>
+    </div>
     <a href="javascript:void(0);" class="icon" onclick="myFunction()">
       <i class="fa fa-bars"></i>
     </a>

@@ -7,24 +7,28 @@ import { LoginComponent } from '../login/login.component';
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent implements OnInit {
-
+  public user: any = localStorage.getItem('userInfo');
   constructor(
     private modalService: NgbModal
   ) { }
 
   ngOnInit(): void {
+    console.log(this.user);
+
   }
 
   onOpenLogin() {
     const activeModal = this.modalService.open(LoginComponent, { size: 'lg', windowClass: 'app-login' });
     activeModal.componentInstance.action = 'Open Modal';
-    // activeModal.componentInstance.scheduleId = scheduleId;
-    // activeModal.componentInstance.data = JSON.stringify(data);
     activeModal.result.then((result) => {
       if (result) {
-        console.log(result);
+        this.user = result;
       }
     })
+  }
+
+  logout() {
+    this.user = null;
   }
 
 }

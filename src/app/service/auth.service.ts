@@ -10,12 +10,12 @@ import { ConfigServerService } from '../core/config-server.service';
     providedIn: 'root'
 })
 export class AuthService {
-    _apiCojUserServer: string;
+    public _apiCojUserServer: string = '';
     header: HttpHeaders
     option: any = {}
     private readonly JWT_TOKEN = 'JWT_TOKEN';
     // private readonly REFRESH_TOKEN = 'REFRESH_TOKEN';
-    private loggedUser: string;
+    private loggedUser: string = '';
 
     constructor(private httpClient: HttpClient, private configService: ConfigServerService) {
         this.header = new HttpHeaders().set("Content-Type", "application/json; charset=UTF-8");
@@ -26,8 +26,8 @@ export class AuthService {
         let params = '?email=' + email + '&password=' + password;
         return this.httpClient.get<any>(this.configService.getAPI('api/user/userLogin.php') + params, { observe: 'response' }).pipe(
             map(response => {
-                if (response.body.value) {
-                    let token: string[] = response.headers.get("Authorization").split(" ");
+                if (response?.body?.value) {
+                    let token: string[] = response?.headers?.get("Authorization")?.toString().split(" ")!;
                     if (token.length > 1) {
                         this.doLoginUser(email, {
                             jwt: token[1], refreshToken: ""
@@ -51,7 +51,7 @@ export class AuthService {
     }
 
     private storeTokens(tokens: Tokens) {
-        localStorage.setItem(this.JWT_TOKEN, tokens.jwt);
+        localStorage.setItem(this.JWT_TOKEN, tokens?.jwt!);
     }
 
     isLoggedIn() {
@@ -63,7 +63,7 @@ export class AuthService {
     }
 
     private doLogoutUser() {
-        this.loggedUser = null;
+        this.loggedUser = '';
         this.removeTokens();
     }
 
