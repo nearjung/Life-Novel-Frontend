@@ -1,16 +1,18 @@
 <div class="topnav" id="myTopnav">
   <div class="container">
-    <a href="#home" class="active">นิยาย</a>
-    <a href="#news">นิยายแชท</a>
-    <a href="#contact">นิยายแชท</a>
-    <a href="#about">กระทู้</a>
-    <a href="#about">เขียน</a>
-    <a href="#about">ตรวจ</a>
-    <a *ngIf="!user?.firstName" (click)="onOpenLogin()" style="float:right; cursor: pointer;">เข้าสู่ระบบ / สมัครสมาชิก</a>
+    <a (click)="subMenu('novel')" class="active">นิยาย</a>
+    <a (click)="subMenu('novelChat')">นิยายแชท</a>
+    <a (click)="subMenu('forum')">กระทู้</a>
+    <a (click)="subMenu('write')">เขียน</a>
+    <a (click)="subMenu('check')">ตรวจ</a>
+    <a *ngIf="!user?.firstName" (click)="onOpenLogin()" style="float:right; cursor: pointer;">เข้าสู่ระบบ /
+      สมัครสมาชิก</a>
     <div class="dropdown">
-      <a *ngIf="user?.firstName" style="float:right; cursor: pointer;" class="dropdown-toggle dropbtn"><img [src]="user.photoUrl" style="border-radius: 50%; height: 28px;"> {{ user.firstName }} </a>
+      <a *ngIf="user?.firstName" style="float:right; cursor: pointer;" class="dropdown-toggle dropbtn"><img
+          [src]="user.photoUrl" style="border-radius: 50%; height: 28px;"> {{ user.firstName }} </a>
       <div class="dropdown-content">
-        <a class="text-center"><i class="fas fa-coins" style="color: rgba(228, 228, 0, 0.986)"></i> {{ user?.cash | number }} Coin</a>
+        <a class="text-center"><i class="fas fa-coins" style="color: rgba(228, 228, 0, 0.986)"></i> {{ user?.cash |
+          number }} Coin</a>
         <a>My Reading</a>
         <a>My Writing</a>
         <a>My Profile</a>
@@ -29,21 +31,23 @@
 
 <div class="topnavSub" id="myTopnavSub">
   <div class="container">
-    <a href="#home" class="active">หน้าแรก</a>
-    <a href="#news">ใหม่มาแรง</a>
-    <a href="#contact">เรื่องฮิต</a>
-    <a href="#about">มาใหม่</a>
-    <a href="#about">อัพเดต</a>
-    <a href="#about">จบแล้ว</a>
-    <a href="#about">หมวดหมู่</a>
-    <a href="#about">อ่านล่าสุด</a>
+    <ng-container *ngFor="let obj of menu">
+      <a style="cursor: pointer;" (click)="obj.link">{{ obj.label }}</a>
+    </ng-container>
+    <!-- <a style="cursor: pointer;" (click)="onPage('')" class="active">หน้าแรก</a>
+    <a style="cursor: pointer;" (click)="onPage('newspecial')">ใหม่มาแรง</a>
+    <a style="cursor: pointer;" (click)="onPage('poppular')">เรื่องฮิต</a>
+    <a style="cursor: pointer;" (click)="onPage('new')">มาใหม่</a>
+    <a style="cursor: pointer;" (click)="onPage('update')">อัพเดต</a>
+    <a style="cursor: pointer;" (click)="onPage('end')">จบแล้ว</a>
+    <a style="cursor: pointer;" (click)="onPage('read')">อ่านล่าสุด</a> -->
   </div>
 </div>
 
 <script>
   var prevScrollpos = window.pageYOffset;
-  window.onscroll = function() {
-  var currentScrollPos = window.pageYOffset;
+  window.onscroll = function () {
+    var currentScrollPos = window.pageYOffset;
     if (prevScrollpos > currentScrollPos) {
       document.getElementById("myTopnavSub").style.top = "0";
     } else {
@@ -51,4 +55,4 @@
     }
     prevScrollpos = currentScrollPos;
   }
-  </script>
+</script>

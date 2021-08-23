@@ -1,0 +1,23 @@
+<app-menu></app-menu>
+<swiper [config]="swiperConfig">
+    <ng-template swiperSlide><img style="width: 100%; border-radius: 5px;" src="./assets/images/slider/01.jpeg">
+    </ng-template>
+    <ng-template swiperSlide><img style="width: 100%; border-radius: 5px;" src="./assets/images/slider/02.jpeg">
+    </ng-template>
+    <ng-template swiperSlide><img style="width: 100%; border-radius: 5px;" src="./assets/images/slider/03.jpeg">
+    </ng-template>
+    <ng-template swiperSlide><img style="width: 100%; border-radius: 5px;" src="./assets/images/slider/04.jpeg">
+    </ng-template>
+    <ng-template swiperSlide><img style="width: 100%; border-radius: 5px;" src="./assets/images/slider/05.jpeg">
+    </ng-template>
+</swiper>
+<div class="container mt-3">
+    <ng-container *ngIf="page === '' || !page">
+        <app-home></app-home>
+    </ng-container>
+    
+    <ng-container *ngIf="page !== ''">
+        <app-book-category></app-book-category>
+    </ng-container>
+</div>
+<app-bottom></app-bottom>

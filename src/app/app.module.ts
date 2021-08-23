@@ -13,7 +13,11 @@ import { HomeComponent } from './pages/home/home.component';
 import { MenuComponent } from './module/menu/menu.component';
 import { BottomComponent } from './module/bottom/bottom.component';
 import { LoginComponent } from './module/login/login.component';
+import { CropImageComponent } from './module/login/crop-image/crop-image.component';
 import { AuthInterceptor } from './authorization/auth.interceptor';
+import { MainPageComponent } from './pages/main-page/main-page.component'
+import { BookCategoryComponent } from './pages/book-category/book-category.component';
+import { ImageCropperModule } from 'ngx-image-cropper';
 
 @NgModule({
   declarations: [
@@ -21,7 +25,10 @@ import { AuthInterceptor } from './authorization/auth.interceptor';
     HomeComponent,
     MenuComponent,
     BottomComponent,
-    LoginComponent
+    LoginComponent,
+    MainPageComponent,
+    BookCategoryComponent,
+    CropImageComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +37,9 @@ import { AuthInterceptor } from './authorization/auth.interceptor';
     FormsModule,
     SwiperModule,
     AppRoutingModule,
-    SocialLoginModule
+    SocialLoginModule,
+    BrowserAnimationsModule,
+    ImageCropperModule
   ],
   providers: [
     ConfigServerService,

@@ -241,3 +241,22 @@ hr {
         text-decoration: none;
     }
 }
+
+.close-modal {
+    float: right;
+    margin-top: -17px;
+    margin-right: -10px;
+    font-size: 1.7rem;
+    color: red;
+}
+
+.crop-image-tools {
+    top: 0;
+    left: 15px;
+    position: absolute;
+    z-index: 999998;
+    width: 97%;
+    background: rgba(0, 0, 0, 0.5);
+    height: 50px;
+    color: #FFF;
+}

@@ -1,0 +1,41 @@
+<div class="row">
+    <div class="col-md-8 col-12">
+        <image-cropper [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true"
+            [containWithinAspectRatio]="containWithinAspectRatio" [aspectRatio]="4 / 3" [resizeToWidth]="256"
+            [cropperMinWidth]="128" [onlyScaleDown]="true" [roundCropper]="false" [canvasRotation]="canvasRotation"
+            [transform]="transform" [alignImage]="'left'" [style.display]="showCropper ? null : 'none'" format="png"
+            (imageCropped)="imageCropped($event)" (imageLoaded)="imageLoaded()" (cropperReady)="cropperReady($event)"
+            (loadImageFailed)="loadImageFailed()"></image-cropper>
+    </div>
+
+    <div class="col-md-4 col-12 text-center">
+        <div class="row">
+            <div class="card">
+                <img [src]="croppedImage" [style.border]="croppedImage ? '1px solid black' : 'none'" />
+                <div class="card-body text-left">
+                    <h6 class="card-title">เครื่องมือ</h6>
+                    <hr>
+                    <div class="col-12" style="cursor: pointer;" (click)="zoomIn()"><i class="fas fa-search-plus"></i> ซูมเข้า</div>
+                    <div class="col-12" style="cursor: pointer;" (click)="zoomOut()"><i class="fas fa-search-minus"></i> ซูมออก</div>
+                    <div class="col-12" style="cursor: pointer;" (click)="rotateLeft()"><i class="fas fa-undo"></i> หมุนซ้าย</div>
+                    <div class="col-12" style="cursor: pointer;" (click)="rotateRight()"><i class="fa-flip-horizontal fas fa-undo"></i> หมุนขวา</div>
+                    <div class="col-12" style="cursor: pointer;" (click)="flipHorizontal()"><i class="fas fa-sync-alt"></i> กลับภาพแนวนอน</div>
+                    <div class="col-12" style="cursor: pointer;" (click)="flipVertical()"><i class="fas fa-sync-alt"></i> กลับภาพแนวตั้ง</div>
+                    <div class="col-12" style="cursor: pointer;" (click)="toggleContainWithinAspectRatio()"><i class="fas fa-expand"></i> อัตราส่วนภาพ</div>
+                    <div class="col-12" style="cursor: pointer;" (click)="resetImage()"><i class="fas fa-image"></i> รีเซ็ท</div>
+                    <div class="row mt-2">
+                        <div class="col-md-6 col-12">
+                            <button type="button" class="btn btn-success btn-block" (click)="closeModal(this.croppedImage)">ยืนยัน</button>
+                        </div>
+                        <div class="col-md-6 col-12">
+                            <button type="button" class="btn btn-danger btn-block" (click)="closeModal()">ยกเลิก</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+
+        </div>
+    </div>
+</div>

@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
+    "start": "ng serve --host 0.0.0.0",
+    "build": "ng build --prod",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
@@ -18,9 +18,12 @@
     "@angular/platform-browser": "~12.0.2",
     "@angular/platform-browser-dynamic": "~12.0.2",
     "@angular/router": "~12.0.2",
+    "@ionic-native/core": "^5.34.0",
+    "@ionic-native/line-login": "^5.34.0",
     "@ng-bootstrap/ng-bootstrap": "^10.0.0",
     "angularx-social-login": "^4.0.1",
     "ngx-color": "^7.2.0",
+    "ngx-image-cropper": "^4.0.1",
     "rxjs": "~6.6.0",
     "sweetalert2": "^11.0.18",
     "swiper": "^6.7.5",

@@ -4,17 +4,17 @@ import { MenuModule } from '../../module/menu/menu.module';
 import { ColorSketchModule } from 'ngx-color/sketch';
 import { BottomModule } from '../../module/bottom/bottom.module';
 import { LoginComponent } from '../../module/login/login.component';
-import { BookCategoryComponent } from '../book-category/book-category.component'
+import { HomeComponent } from '../home/home.component';
 
 @NgModule({
-  declarations: [LoginComponent, BookCategoryComponent],
+  declarations: [LoginComponent, HomeComponent],
   imports: [
     CommonModule,
     MenuModule,
     ColorSketchModule,
     BottomModule
   ],
-  entryComponents: [LoginComponent, BookCategoryComponent],
-  exports: [LoginComponent, BookCategoryComponent]
+  entryComponents: [LoginComponent, HomeComponent],
+  exports: [LoginComponent, HomeComponent]
 })
-export class HomeModule { }
+export class MainModule { }

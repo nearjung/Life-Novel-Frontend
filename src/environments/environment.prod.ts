@@ -1,5 +1,5 @@
 export const environment = {
-  endPointWeb: 'http://localhost:9000/',
+  endPointWeb: 'http://34.87.85.20:9000/',
   configPath: '',
   production: true
 };

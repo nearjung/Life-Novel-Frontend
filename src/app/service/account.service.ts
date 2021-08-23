@@ -22,6 +22,15 @@ export class AccountService {
       }));
   }
 
+  public loginWeb(data: any) {
+    return this.httpClient.post<any>(this.configService.getAPI('login/get'), data).pipe(
+      map(respons => {
+        return {
+          serviceResult: respons
+        }
+      }));
+  }
+
   // public login(obj: any) {
   //   let params = '?member=' + memberId;
   //   return this.httpClient.get<any>(this.configService.getAPI('Scan/getVisit') + params).pipe(
