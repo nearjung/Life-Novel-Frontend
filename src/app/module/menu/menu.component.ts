@@ -8,7 +8,7 @@ import { LoginComponent } from '../login/login.component';
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent implements OnInit {
-  public user: any = JSON.parse(localStorage.getItem('userInfo') || '{}');
+  public user: any = (localStorage.getItem('userInfo')) ? JSON.parse(localStorage.getItem('userInfo') || '{}') : null;
   public category: any = "novel";
   public menu: any = [];
   constructor(

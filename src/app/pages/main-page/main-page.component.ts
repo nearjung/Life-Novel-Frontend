@@ -12,7 +12,7 @@ import { Subject } from 'rxjs';
 })
 export class MainPageComponent implements OnInit {
   private ngUnsubscribe = new Subject();
-  public user: any = JSON.parse(localStorage.getItem('userInfo') || '{}');
+  public user: any = (localStorage.getItem('userInfo')) ? JSON.parse(localStorage.getItem('userInfo') || '{}') : null;
   public page: any;
   public swiperConfig: any = {
     spaceBetween: 3,
