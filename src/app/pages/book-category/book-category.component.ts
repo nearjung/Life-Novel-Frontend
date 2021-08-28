@@ -4,6 +4,7 @@ import Swiper from 'swiper';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from '../../module/login/login.component';
 import { ActivatedRoute } from '@angular/router';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-book-category',
@@ -11,6 +12,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./book-category.component.scss']
 })
 export class BookCategoryComponent implements OnInit {
+  private ngUnsubscribe = new Subject();
   public page: any;
   public catalogName: any;
 
@@ -27,6 +29,11 @@ export class BookCategoryComponent implements OnInit {
     
   }
 
+  ngOnDestroy() {
+    this.ngUnsubscribe.next();
+    this.ngUnsubscribe.complete();
+  }
+  
   setCatalogName() {
     if (this.page === "newspecial") {
       this.catalogName = "ใหม่มาแรง";

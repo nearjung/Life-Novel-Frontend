@@ -4,6 +4,7 @@ import Swiper from 'swiper';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { LoginComponent } from '../../module/login/login.component';
 import { Router } from '@angular/router';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -11,6 +12,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
+  private ngUnsubscribe = new Subject();
   
   constructor(private elementRef: ElementRef
     , private router: Router
@@ -22,4 +24,8 @@ export class HomeComponent implements OnInit {
   ngAfterViewInit() {
   }
 
+  ngOnDestroy() {
+    this.ngUnsubscribe.next();
+    this.ngUnsubscribe.complete();
+  }
 }

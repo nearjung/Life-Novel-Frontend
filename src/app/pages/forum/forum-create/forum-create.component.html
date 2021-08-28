@@ -1,0 +1,62 @@
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="row mb-5">
+                    <div class="col"><span style="cursor: pointer;" (click)="changePage('hottopic')"><i class="fas fa-arrow-left mr-2"></i>กลับสู่หน้าหลัก</span></div>
+                    <div class="col text-right"><span class="badge badge-pill badge-info"><i class="fas fa-eye"></i> Preview</span></div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group">
+                            <input type="text" [(ngModel)]="forumBoard.title" class="form-control" placeholder="ชื่อกระทู้ *" required>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="form-group">
+                            <select [(ngModel)]="forumBoard.forumCatalogId" class="form-control" id="exampleFormControlSelect1">
+                                <option [value]="0">หมวดหมู่ *</option>
+                                <option [value]="1">คุยเรื่องนิยาย</option>
+                                <option [value]="2">คุยเรื่องการ์ตูน</option>
+                                <option [value]="3">คุยเรื่องสัพเพเหระ</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="form-group">
+                            <select [(ngModel)]="forumBoard.rating" class="form-control" id="exampleFormControlSelect1">
+                                <option [value]="0">ระดับเนื้อหา *</option>
+                                <option [value]="1">ทุกวัย</option>
+                                <option [value]="2">ปฐมวัย อายุ 3-5 ปี</option>
+                                <option [value]="3">เด็ก อายุ 6-12 ปี</option>
+                                <option [value]="4">น.13 อายุ 13 ปีขึ้นไป</option>
+                                <option [value]="5">น.18 อายุ 18 ปีขึ้นไป</option>
+                                <option [value]="6">ฉ.20 เฉพาะผู้ใหญ่ อายุ 20 ปีขึ้นไป</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group">
+                            <input [(ngModel)]="forumBoard.tag" type="text" class="form-control" placeholder="แท็ก (Tag)" required>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group">
+                            <angular-editor [(ngModel)]="forumBoard.html" [config]="editorConfig"></angular-editor>
+                        </div>
+                    </div>
+                    <div class="col-6 text-right">
+                        <div class="form-group">
+                            <button (click)="save()" type="button" class="btn btn-primary">บันทึก</button>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="form-group">
+                            <button type="button" (click)="changePage('hottopic')" class="btn btn-danger">ยกเลิก</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

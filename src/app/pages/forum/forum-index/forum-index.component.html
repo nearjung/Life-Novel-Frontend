@@ -1,0 +1,8 @@
+<div class="container mt-3">
+    <ng-container *ngIf="page != 'create'">
+        <app-forum-detail [catalog]="page"></app-forum-detail>
+    </ng-container>
+    <ng-container *ngIf="page == 'create'">
+        <app-forum-create></app-forum-create>
+    </ng-container>
+</div>

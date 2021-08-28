@@ -8,22 +8,21 @@ import { LoginComponent } from '../login/login.component';
   styleUrls: ['./menu.component.scss']
 })
 export class MenuComponent implements OnInit {
-  public user: any = localStorage.getItem('userInfo');
+  public user: any = JSON.parse(localStorage.getItem('userInfo') || '{}');
   public category: any = "novel";
   public menu: any = [];
   constructor(
     private modalService: NgbModal
     , private router: Router
-  ) { 
+  ) {
     this.subMenu();
   }
 
   ngOnInit(): void {
-    console.log(this.user);
   }
 
   onPage(page: string, query: string) {
-    if (!page) {
+    if (!page && !query) {
       this.router.navigate(['']);
     } else {
       this.router.navigate([page], { queryParams: { page: query } });
@@ -31,24 +30,45 @@ export class MenuComponent implements OnInit {
   }
 
   subMenu(category: string = "novel") {
+    this.category = category;
     if (category === "novel") {
       this.menu = [
-        { link: "onPage('', '')", label: 'หน้าแรก' },
-        { link: "onPage('', 'newspecial')", label: 'ใหม่มาแรง' },
-        { link: "onPage('', 'poppular')", label: 'เรื่องฮิต' },
-        { link: "onPage('', 'new')", label: 'มาใหม่' },
-        { link: "onPage('', 'update')", label: 'อัพเดท' },
-        { link: "onPage('', 'end')", label: 'จบแล้ว' },
-        { link: "onPage('', 'read')", label: 'อ่านล่าสุด' },
+        { active: false, page: "", query: "", label: 'หน้าแรก' },
+        { active: false, page: "", query: "newspecial", label: 'ใหม่มาแรง' },
+        { active: false, page: "", query: "poppular", label: 'เรื่องฮิต' },
+        { active: false, page: "", query: "new", label: 'มาใหม่' },
+        { active: false, page: "", query: "update", label: 'อัพเดท' },
+        { active: false, page: "", query: "end", label: 'จบแล้ว' },
+        { active: false, page: "", query: "read", label: 'อ่านล่าสุด' },
       ]
     } else if (category === "novelChat") {
-      this.menu = [];
+      this.menu = [
+        { active: false, page: "", query: "", label: 'หน้าแรก' },
+        { active: false, page: "chat-novel", query: "newspecial", label: 'ใหม่มาแรง' },
+        { active: false, page: "chat-novel", query: "poppular", label: 'เรื่องฮิต' },
+        { active: false, page: "chat-novel", query: "new", label: 'มาใหม่' },
+        { active: false, page: "chat-novel", query: "update", label: 'อัพเดท' },
+        { active: false, page: "chat-novel", query: "end", label: 'จบแล้ว' },
+        { active: false, page: "chat-novel", query: "read", label: 'อ่านล่าสุด' },
+      ]
     } else if (category === "forum") {
-      this.menu = [];
+      this.menu = [
+        { active: false, page: "", query: "", label: 'หน้าแรก' },
+        { active: false, page: "forum", query: "hottopic", label: 'กระทู้มาแรง' },
+        { active: false, page: "forum", query: "newtopic", label: 'กระทู้มาใหม่' },
+      ];
     } else if (category === "write") {
-      this.menu = [];
+      this.menu = [
+        { active: false, page: "", query: "", label: 'หน้าแรก' },
+        { active: false, page: "write", query: "mystory", label: 'งานเขียนของฉัน' },
+        { active: false, page: "write", query: "createstory", label: 'เพิ่มงานเขียนใหม่' },
+      ];
     } else if (category === "check") {
-      this.menu = [];
+      this.menu = [
+        { active: false, page: "", query: "", label: 'หน้าแรก' },
+        { active: false, page: "check", query: "mystory", label: 'ตรวจงานเขียนของฉัน' },
+        { active: false, page: "check", query: "checkmsg", label: 'ตรวจสอบข้อความ' },
+      ];
     }
   }
 
@@ -70,6 +90,7 @@ export class MenuComponent implements OnInit {
 
   logout() {
     this.user = null;
+    localStorage.removeItem("userInfo");
   }
 
 }

@@ -1,15 +1,9 @@
-export class Picture {
-    public pictureId: number | undefined;
-    public formCode: string | undefined;
+export class ForumCatalog {
+    public forumCatalogId: number | undefined;
     public name: string | undefined;
-    public path: string | undefined;
     public active: string | undefined;
     public createBy: string | undefined;
     public createDate: Date | undefined;
     public updateBy: string | undefined;
     public updateDate: Date | undefined;
-}
-
-export class PictureUpload extends Picture {
-    public base64: string | undefined;
 }

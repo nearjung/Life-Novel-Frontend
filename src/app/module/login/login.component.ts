@@ -16,6 +16,7 @@ import { AccountRegister } from './../../models/account';
 import { RegisterService } from '../../service/register.service';
 import { AccountService } from '../../service/account.service';
 import { environment } from '../../../environments/environment';
+import { Subject } from 'rxjs';
 
 
 @Component({
@@ -24,6 +25,7 @@ import { environment } from '../../../environments/environment';
   providers: [LineLogin]
 })
 export class LoginComponent implements OnInit {
+  private ngUnsubscribe = new Subject();
   public page: any = 'login';
   public imageChangedEvent: any;
   public user = new SocialUser;
@@ -54,6 +56,11 @@ export class LoginComponent implements OnInit {
         console.error(err);
       })
     });
+  }
+
+  ngOnDestroy() {
+    this.ngUnsubscribe.next();
+    this.ngUnsubscribe.complete();
   }
 
   signInWithGoogle(): void {
@@ -162,6 +169,7 @@ export class LoginComponent implements OnInit {
     }
     this.accountService.loginWeb(loginSubmit).subscribe(result => {
       if (result.serviceResult.status == "Success") {
+        localStorage.setItem('userInfo', JSON.stringify(result.serviceResult.value));
         Swal.fire('Success', 'เข้าสู่ระบบสำเร็จ', 'success').then(btn => {
           if (btn.isConfirmed) {
             this.closeModal(result.serviceResult.value);

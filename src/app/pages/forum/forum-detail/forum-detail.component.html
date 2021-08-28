@@ -1,0 +1,84 @@
+<ng-container *ngIf="!forumId">
+  <div class="row mb-3">
+    <div class="col text-right">
+      <button type="button" (click)="category = 1; getForum();"
+        class="{{ (category === 1) ? 'btn btn-primary btn-lg btn-block' : 'btn btn-outline-primary btn-lg btn-block' }}">คุยเรื่องนิยาย</button>
+    </div>
+    <div class="col">
+      <button type="button" (click)="category = 2; getForum();"
+        class="{{ (category === 2) ? 'btn btn-danger btn-lg btn-block' : 'btn btn-outline-danger btn-lg btn-block' }}">คุยเรื่องการ์ตูน</button>
+    </div>
+    <div class="col">
+      <button type="button" (click)="category = 3; getForum();"
+        class="{{ (category === 3) ? 'btn btn-info btn-lg btn-block' : 'btn btn-outline-info btn-lg btn-block' }}">คุยเรื่องสัพเพเหระ</button>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col"></div>
+    <div class="col text-center">
+      <h1>{{ catalogName }}</h1>
+    </div>
+    <div class="col text-right"><button (click)="changePage('create')" type="button" class="btn btn-primary btn-sm"><i
+          class="fas fa-pencil-alt"></i> สร้างกระทู้</button></div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title"></h5>
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th class="col-6">ชื่อกระทู้</th>
+                <th class="col-3">ผู้สร้าง</th>
+                <th class="col-3">วันที่สร้าง</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let forum of forumList | paginate: { itemsPerPage: 10, currentPage: p }"
+                (click)="forumInformation(forum.forumId)" style="cursor: pointer;">
+                <td>{{ forum.title }}</td>
+                <td>{{ forum.firstName }}</td>
+                <td>{{ forum.createDate | date:'short' }}</td>
+              </tr>
+
+            </tbody>
+          </table>
+          <div *ngIf="forumList.length > 10" class="text-center">
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="forumId">
+  <div class="card">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-6"><h5 class="card-title">{{ forumInfo.title }}</h5></div>
+        <div class="col-6 text-right" style="font-size: 0.7rem;">Create Date : {{ forumInfo.createDate | date: 'short' }}</div>
+      </div>
+      
+      <hr>
+      <div [innerHTML]="forumInfo.html"></div>
+      <hr>
+      <div class="row">
+        <div class="col-6" style="font-size: 0.7rem;">Create By : {{ forumInfo.firstName }}</div>
+        <div class="col-6 text-right" style="font-size: 0.7rem;">Rating : <i class="far fa-star"></i> <i class="far fa-star"></i> <i class="far fa-star"></i> <i class="far fa-star"></i> <i class="far fa-star"></i></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="card mt-3">
+    <div class="card-body">
+      <div class="row">
+        <div class="col-3">
+
+        </div>
+        <div class="col-9"></div>
+      </div>
+    </div>
+  </div>
+</ng-container>

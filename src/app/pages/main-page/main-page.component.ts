@@ -3,6 +3,7 @@ import { ColorEvent } from 'ngx-color';
 import Swiper from 'swiper';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-main-page',
@@ -10,6 +11,8 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./main-page.component.scss']
 })
 export class MainPageComponent implements OnInit {
+  private ngUnsubscribe = new Subject();
+  public user: any = JSON.parse(localStorage.getItem('userInfo') || '{}');
   public page: any;
   public swiperConfig: any = {
     spaceBetween: 3,
@@ -48,4 +51,9 @@ export class MainPageComponent implements OnInit {
     this.elementRef.nativeElement.ownerDocument.body.style.fontFamily = 'Kanit';
   }
 
+  ngOnDestroy() {
+    this.ngUnsubscribe.next();
+    this.ngUnsubscribe.complete();
+  }
+  
 }

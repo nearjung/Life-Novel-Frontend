@@ -6,6 +6,8 @@ import { SocialLoginModule, SocialAuthServiceConfig, GoogleLoginProvider, Facebo
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ConfigServerService } from './core/config-server.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AngularEditorModule } from '@kolkov/angular-editor';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +20,9 @@ import { AuthInterceptor } from './authorization/auth.interceptor';
 import { MainPageComponent } from './pages/main-page/main-page.component'
 import { BookCategoryComponent } from './pages/book-category/book-category.component';
 import { ImageCropperModule } from 'ngx-image-cropper';
+import { ForumDetailComponent } from './pages/forum/forum-detail/forum-detail.component';
+import { ForumCreateComponent } from './pages/forum/forum-create/forum-create.component';
+import { ForumIndexComponent } from './pages/forum/forum-index/forum-index.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +33,10 @@ import { ImageCropperModule } from 'ngx-image-cropper';
     LoginComponent,
     MainPageComponent,
     BookCategoryComponent,
-    CropImageComponent
+    CropImageComponent,
+    ForumDetailComponent,
+    ForumIndexComponent,
+    ForumCreateComponent
   ],
   imports: [
     BrowserModule,
@@ -36,32 +44,33 @@ import { ImageCropperModule } from 'ngx-image-cropper';
     AppRoutingModule,
     FormsModule,
     SwiperModule,
-    AppRoutingModule,
     SocialLoginModule,
     BrowserAnimationsModule,
-    ImageCropperModule
+    ImageCropperModule,
+    AngularEditorModule,
+    NgxPaginationModule
   ],
   providers: [
     ConfigServerService,
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    // { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     {
-    provide: 'SocialAuthServiceConfig',
-    useValue: {
-      autoLogin: false,
-      providers: [
-        {
-          id: GoogleLoginProvider.PROVIDER_ID,
-          provider: new GoogleLoginProvider(
-            '754047462333-7as4ci2fauql6ai99jruqp2isv0ulu1h.apps.googleusercontent.com'
-          )
-        },
-        {
-          id: FacebookLoginProvider.PROVIDER_ID,
-          provider: new FacebookLoginProvider('352293546336696')
-        }
-      ]
-    } as SocialAuthServiceConfig,
-  }],
+      provide: 'SocialAuthServiceConfig',
+      useValue: {
+        autoLogin: false,
+        providers: [
+          {
+            id: GoogleLoginProvider.PROVIDER_ID,
+            provider: new GoogleLoginProvider(
+              '754047462333-7as4ci2fauql6ai99jruqp2isv0ulu1h.apps.googleusercontent.com'
+            )
+          },
+          {
+            id: FacebookLoginProvider.PROVIDER_ID,
+            provider: new FacebookLoginProvider('352293546336696')
+          }
+        ]
+      } as SocialAuthServiceConfig,
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
